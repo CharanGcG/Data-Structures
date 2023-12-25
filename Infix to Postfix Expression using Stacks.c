@@ -38,13 +38,18 @@ int main()
             }
             char open=pop();  //getting rid of parenthesis by storing it in another variable
         }
-        else
+        else if(character=='+' ||character=='-' ||character=='*' ||character=='/' || character=='^')
         {
             while(precedence(character)<=precedence(stack[top]))   //checks precedence condition and pushes the operators to the stack
             {
                 postfix[k++]=pop();
             }
             push(character);
+        }
+        else
+        {
+            printf("Please enter a valid expression of only operands and operators");
+            return 0;
         }
     }
 
