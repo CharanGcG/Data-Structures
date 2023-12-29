@@ -40,7 +40,7 @@ int main()
         }
         else if(character=='+' ||character=='-' ||character=='*' ||character=='/' || character=='^')
         {
-            while(precedence(character)<=precedence(stack[top]))   //checks precedence condition and pushes the operators to the stack
+            while(precedence(character) < precedence(stack[top]) || (precedence(character) == precedence(stack[top]) && character != '^'))   //checks precedence and associativity condition and pushes the operators to the stack
             {
                 postfix[k++]=pop();
             }
